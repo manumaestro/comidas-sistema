@@ -18,14 +18,14 @@ export const create = async (data) => {
     data: {
       nome: data.nome,
       tipo: data.tipo,
-      preco: data.preco,
+      preco: Number(data.preco),
       descricao: data.descricao
     },
   });
 }
 
 export const deletar = async (id) => {
-  return await prisma.comidas.delete({
+  return await prisma.comidas.update({
     where: { id: Number(id) },
   })
 }
